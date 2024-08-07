@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>脉动健康</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+</head>
+<body>
+    <div class="脉动健康">                  <!--套了个容器-->
+        <div class="header">               <!--存放大标题--> 
+            <div class="top">
+                <h1>康弦.web</h1>
+            </div>                          
+            <div class="news">              <!--存放总介绍，名字叫news其实不是news，懒得改了-->                   
+                <p><strong>我们致力于研发中医脉诊智能化、数字化<br>的健康医疗监测设备</strong></p>
+            </div>                                     
+        </div>                              
+        <div class="产品介绍">
+            <div class="产品介绍分段">
+                <p>产品介绍</p>
+                <p class="英文">Productivity</p>
+            </div>
+            <div class="场景渲染背景框架部分">
+                <div class="场景图片加文本盒子">
+                    <img src="image/场景渲染图1.jpg" alt="场景渲染图">
+                    <p>文字表述1</p>
+                </div>
+            </div>
+            <div class="产品建模轮播图">
+                <p class="文本表述2">文本表述2</p>
+                    <!-- 先做一个轮播图和插图的总盒子 -->
+                    <div class="con-container">
+                        <div class="场景渲染图2">
+                            <img src="image/场景渲染图2.jpg" alt="场景渲染图2">
+                        </div>
+                        <!-- 下面做一个真正的轮播图盒子 -->
+                        <div id="container">                    
+                            <ul  id="slide"> <!--这里只有用id才能配合下面的自动轮播-->
+                                <li><img src="image/渲染1.jpg " alt=""></li>
+                                <li><img src="image/渲染2.jpg " alt=""></li>
+                                <li><img src="image/渲染3.jpg " alt=""></li>
+                                <li><img src="image/渲染4.jpg " alt=""></li>
+                                <li><img src="image/渲染5.jpg " alt=""></li>
+                                <li><img src="image/渲染6.jpg " alt=""></li>
+                                <li><img src="image/渲染7.jpg " alt=""></li>
+                                <li><img src="image/渲染8.jpg " alt=""></li>
+                                <li><img src="image/渲染1.jpg " alt=""></li>
+                            <!-- 做出列表下面的圆点 -->
+                            <ul id="icolist">
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                                <li>6</li>
+                                <li>7</li>
+                                <li>8</li>
+                            </ul>
+                            <!-- 做两个箭头 -->
+                            </ul>
+                            <div class="prev">《</div>
+                            <div class="next">》</div>
+                        </div>
+                        <!-- 做一个图片自动轮播 -->
+                        <script>
+                            var eprev = document.querySelector('.prev')
+                            var enext = document.querySelector('.next')
+                            var esico = document.getElementById('icolist').getElementsByTagName('li')
+                            var eicolist=document.querySelector('#icolist')
+                            var left=0;
+                            var timer;
+                            run();
+                            function run(){
+                                if (left<=-2400){
+                                    left=0
+                                }
+                                var m=Math.floor(-left/300);   //底下圆点移动的代码
+                                slide.style.marginLeft = left + 'px';
+                                var n =(left %300==0)?n=3600:n=20;
+                                left -= 10;
+                                timer = setTimeout(run,n);
+                                icochange(m)  //底下圆点移动的代码
+                            }
+                            // 我们做一个图片定位函数，给箭头上下换图片用
+                            function imgchange(n){
+                                let lt = -(n*300);
+                                slide.style.marginLeft=lt+'px';
+                                left=lt
+                            }
+                            // 让箭头可以实现换图
+                            eprev.onclick=function(){
+                                let prevgo= Math.floor(-left/300)-1;
+                                if(prevgo==-1){
+                                    prevgo=7 ;
+                                }
+                                imgchange(prevgo)
+                            } 
+                            enext.onclick=function(){
+                                let nextgo= Math.floor(-left/300)+1;
+                                if(nextgo==8){
+                                    nextgo=0;
+                                }
+                                imgchange(nextgo)
+                            }
+                            function icochange(m) {   //实现圆点跟随照片
+                                for (let index=0;index<esico.length;index++){
+                                    esico[index].style.backgroundColor ='';
+                                }
+                                if (m<esico.length){
+                                    esico[m].style.backgroundColor='#fff';
+                                }
+                            }
+                            eicolist.onclick=function(){    //实现点击圆点切换照片
+                                var tg =event.target;
+                                let ico=tg.innerHTML-1;
+                                imgchange(ico);
+                                icochange(ico);
+                            }
+                        </script>
+                        <!-- 完成箭头换图 -->
+                    </div>    
+            </div>
+        </div> 
+    </div>
+</body>
+<footer>
+     <!-- 开始写页尾(＾－＾)V！！    -->
+     <div class="页尾">
+        <div class="文本">
+            <h2>关于我们</h2>
+            <p class="成员">队长：郑灿</p>
+            <p class="成员">成员：谢燚柔，李畅，冯一丰，鲍欣然，林俏含，陈炯宇</p>
+            <p class="学校"><strong>浙江财经大学</strong></p>
+        </div>
+     </div>
+</footer>
+</html>

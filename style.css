@@ -1,0 +1,239 @@
+/*  写一段没什么用的,里面的两个注释挺好的  
+    background-image:url(image/shop.jpg) ;  注释：如何放图片
+    background-size:cover;
+    background-repeat: no-repeat;           注释：如何放图片（完）
+.news a{
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #3f3f3f67 ; 
+    padding: 7px 15px;
+    border-radius: 5px;}    注释：边框圆角大小     
+    .news a:hover{        注释：hover用法：当鼠标选中时出现，当然也要规定不选中时的状态（text-decoration: none;）
+    text-decoration:underline  5px #ffffff;
+}
+    display: flex;                  注释：将文本放到中间
+    justify-content:content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    */
+/*css中控制元素距离的代码     border（边框）  如：border：5px（大小）#9d8189（颜色） solid/dashed/dotted（直线/虚线/圆点） 
+                            padding（内边距）如：padding：30px（只输入一个值，套用上下左右）/ pad：30 0 30 40（上 右 下 左）
+                            margin（外边距） 形如padding 不做举例
+  用flexbox排版 display:flex;
+                    justify-content:content/space-bewteen/space-evenly(水平置中/伸展到两侧/均分子元素以外的空隙）                          */
+*{
+    padding: 0;        /*初始化 */
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+.烘焙工坊{
+    width: 100%;
+    max-width: 1920px;
+    min-width: 1280;
+}
+/*以下都是对header内部的元素进行编辑 */
+.header{                       
+    height: 490px;
+    background-image:url(image/介绍背景.png); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 1536px;        /*猜测：height是h1整个面板的高度，line-height是字体高度 */
+    
+}
+.top{
+    width: 100%;
+    position:absolute;
+    top: 0;
+    height: 60px; 
+    background-color: rgba(218, 208, 200, 0.74);
+}
+h1{
+    color: rgba(0, 0, 0, 0.878);
+    position:absolute;
+    top:0;
+    line-height: 60px;
+    font-size: 30px;    /*font-size 改字体大小 */
+    left: 100px;        /*猜测：但left还是字体本身的位置，与整个背景面板无关 */ 
+}
+.news p{                        /*行间距只能在p里面改，至少不能在a里面改，当a只有一行的时候，a和谁比行间距啊*/
+    font-size: 46px;
+    color: #eae5d1;
+    text-align: center;         /*文字居中对齐*/
+    display:flex ;              /*文字居中*/
+    align-items: center;
+    justify-content: center; 
+    font-family: STKaiti;
+    height: 490px;
+}
+/*header写完了*/  
+/*产品介绍开始*/
+    /* 产品总介开始 */
+.产品介绍分段{
+    background-color:#cd9767 ;
+    font-size: 40px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.产品介绍分段 p{
+    position: relative;
+    left: 100px;
+    font-size: 40px;
+    top: 100px;
+}
+.英文{
+    font-size: 50px;
+    color: #90382b;
+}
+.场景渲染背景框架部分{
+    height: 500px;
+    background-color: #cd9767;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.场景图片加文本盒子{
+    height:430px;
+    width:1360px;
+    margin-left: 20px;
+    display: flex;
+    margin-top: 190px;
+}
+.场景图片加文本盒子 img{
+    height: 430px;
+    width: 600px;
+    left: 100px;
+    top: 20px;
+    position: relative;
+    border-radius: 10px;
+    
+}
+.场景图片加文本盒子 p{
+   line-height: 400px; 
+   position: relative;
+   left: 300px;
+   font-size: 40px;
+}
+    /* 产品总介结束 */
+    /* 产品轮播开始 */
+.产品建模轮播图{
+    background-color: #cd9767;
+    height: 800px;   
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+.文本表述2{
+    font-size: 40px;
+    position: relative;
+    left: 300px;
+    width: 300px;
+    height: 200px;
+    top: 160px;
+}
+.con-container{
+    height: 450px;
+    width: 1560px;
+    display: flex;
+    background-color: #cd9767;
+    margin-top: 0px;
+}
+.场景渲染图2 img{
+    height:400px;
+    width: 500px;
+    position: relative;
+    left: 550px;
+    border-radius:15px;
+    top: 100px;
+}
+#container{   /*访问id要用#，与class不同*/
+    width: 300px;
+    height: 300px;
+    border: 20px solid #c3b8a1;
+    position: relative;
+    left: 360px;    /*与场景渲染图2差190px*/
+    overflow: hidden;
+    border-radius:15px;   
+}
+#slide{
+    width: 2700px;
+    height: 300px; 
+}
+#slide img{
+    width:300px;
+    height:300px;
+    float: left; 
+    
+}
+.prev{
+    background: #8d7968;
+    width: 30px;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    position: absolute;
+    top: 130px;
+    cursor: pointer;
+}
+.next{
+    background: #8d7968;
+    width: 30px;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    position: absolute;
+    top: 130px;
+    left: 270px;
+    cursor: pointer;
+}
+#icolist{
+    position: absolute;
+    left:10px;
+    top: 280px;
+}
+#icolist li{
+     width: 10px;
+     height: 10px;
+     border-radius:50% ;
+     background:#636161 ;
+     text-align: center;
+     line-height: 10px;
+     color: #fff;
+     float: left;
+     font-size: 0%;
+     margin-left: 5px;
+     cursor: pointer;
+}
+/* 下面是页尾的 */
+.页尾{
+    height: 105px;
+    width: 1600px;
+    background-color: #6e635b; 
+    display: flex;
+}
+.文本{
+    height: 95px;
+    position: relative;  
+    top: 10px;
+    left: 30px;
+}
+.文本 h2{
+    font-size: 25px;
+    position: relative;
+    right:10px;
+}
+.成员{
+    font-size: 17px;
+}
+.学校{
+    font-size: 18px;
+    position:relative;
+    left:1350px;
+    margin-top: -23px;
+}
+
+
+
+
